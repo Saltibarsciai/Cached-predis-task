@@ -1,0 +1,54 @@
+<template>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Items</div>
+                    <div class="card-body">
+                        <form action="" class="form-group">
+                            <input type="text" placeholder="Provide task name" v-model="name" class="form-control"/>
+                            <input @click.prevent="formSubmit(buttonText)" type="submit" :value="buttonText" class="btn btn-primary mt-2"/>
+                        </form>
+                        <hr>
+                        <ul class="list-group">
+                            <li v-for="item in items" class="list-group-item">
+                                <h3>
+                                    {{item.name}}
+                                </h3>
+                                <button @click="updateItem(item)" class="btn btn-info">
+                                    update
+                                </button>
+                                <button @click="deleteItem(item.id)" class="btn btn-danger">
+                                    delete
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "Master",
+        mounted() {
+            console.log('Component mounted.');
+            this.getData();
+        },
+        data() {
+            return {
+                items: {},
+                buttonText: 'store',
+                name: '',
+                id: 1
+            }
+        },
+
+    }
+</script>
+
+<style scoped>
+
+</style>
