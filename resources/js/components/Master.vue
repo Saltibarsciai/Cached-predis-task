@@ -53,7 +53,13 @@
                     alert(e)
                 })
             },
-
+            deleteItem(id) {
+                axios.delete('/api/tasks/'+id).then(res => {
+                    this.getData();
+                }).catch(e => {
+                    alert(e)
+                })
+            },
             updateItem(item) {
                 this.name = item.name;
                 this.id = item.id;

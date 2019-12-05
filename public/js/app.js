@@ -1894,13 +1894,22 @@ __webpack_require__.r(__webpack_exports__);
         alert(e);
       });
     },
+    deleteItem: function deleteItem(id) {
+      var _this2 = this;
+
+      axios["delete"]('/api/tasks/' + id).then(function (res) {
+        _this2.getData();
+      })["catch"](function (e) {
+        alert(e);
+      });
+    },
     updateItem: function updateItem(item) {
       this.name = item.name;
       this.id = item.id;
       this.buttonText = 'update';
     },
     formSubmit: function formSubmit(type) {
-      var _this2 = this;
+      var _this3 = this;
 
       switch (type) {
         case 'store':
@@ -1909,7 +1918,7 @@ __webpack_require__.r(__webpack_exports__);
           }).then(function (res) {
             console.log(res.data);
 
-            _this2.getData();
+            _this3.getData();
           })["catch"](function (e) {
             alert(e);
           });
@@ -1919,9 +1928,9 @@ __webpack_require__.r(__webpack_exports__);
           axios.patch('/api/tasks/' + this.id, {
             name: this.name
           }).then(function (res) {
-            _this2.buttonText = 'store';
+            _this3.buttonText = 'store';
 
-            _this2.getData();
+            _this3.getData();
           })["catch"](function (e) {
             alert(e);
           });
