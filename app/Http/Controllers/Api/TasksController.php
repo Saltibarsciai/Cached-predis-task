@@ -38,7 +38,8 @@ class TasksController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-
+        $task->update(['name' => $request->name]);
+        return response([], 200);
     }
 
     /**
