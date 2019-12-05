@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Task;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\Response;
 
 class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -20,10 +22,10 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param TaskRequest $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         Task::create($request->all());
         return response([], 200);
@@ -32,11 +34,11 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
+     * @param TaskRequest $request
+     * @param Task $task
+     * @return Response
      */
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
         $task->update(['name' => $request->name]);
         return response([], 200);
@@ -45,9 +47,9 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Task $task
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @param Task $task
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Task $task)
     {

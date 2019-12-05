@@ -21,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
@@ -113,6 +116,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1URS9rExoft5RqCwPIvJyonExJM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../orca-task" />
@@ -153,11 +157,22 @@
       <updated>1575317765304</updated>
       <workItem from="1575317766543" duration="3808000" />
       <workItem from="1575358997726" duration="1015000" />
-      <workItem from="1575455053064" duration="9372000" />
+      <workItem from="1575455053064" duration="10316000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
