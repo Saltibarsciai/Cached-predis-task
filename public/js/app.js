@@ -1883,6 +1883,17 @@ __webpack_require__.r(__webpack_exports__);
       name: '',
       id: 1
     };
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      axios.get('/api/tasks').then(function (res) {
+        _this.items = res.data;
+      })["catch"](function (e) {
+        alert(e);
+      });
+    }
   }
 });
 

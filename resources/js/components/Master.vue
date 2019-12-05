@@ -45,7 +45,18 @@
                 id: 1
             }
         },
+        methods: {
+            getData(){
+                axios.get('/api/tasks').then(res => {
+                    this.items = res.data
+                }).catch(e => {
+                    alert(e)
+                })
+            },
 
+
+
+        }
     }
 </script>
 
