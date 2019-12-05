@@ -1893,6 +1893,46 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         alert(e);
       });
+    },
+    updateItem: function updateItem(item) {
+      this.name = item.name;
+      this.id = item.id;
+      this.buttonText = 'update';
+    },
+    formSubmit: function formSubmit(type) {
+      var _this2 = this;
+
+      switch (type) {
+        case 'store':
+          axios.post('/api/tasks', {
+            name: this.name
+          }).then(function (res) {
+            console.log(res.data);
+
+            _this2.getData();
+          })["catch"](function (e) {
+            alert(e);
+          });
+          break;
+
+        case 'update':
+          axios.patch('/api/tasks/' + this.id, {
+            name: this.name
+          }).then(function (res) {
+            _this2.buttonText = 'store';
+
+            _this2.getData();
+          })["catch"](function (e) {
+            alert(e);
+          });
+          break;
+
+        default:
+          alert('error formSubmit');
+          break;
+      }
+
+      this.name = '';
     }
   }
 });

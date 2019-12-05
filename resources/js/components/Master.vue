@@ -54,7 +54,35 @@
                 })
             },
 
-
+            updateItem(item) {
+                this.name = item.name;
+                this.id = item.id;
+                this.buttonText = 'update';
+            },
+            formSubmit(type){
+                switch (type) {
+                    case 'store':
+                        axios.post('/api/tasks', {name: this.name}).then(res => {
+                            console.log(res.data);
+                            this.getData()
+                        }).catch(e => {
+                            alert(e)
+                        });
+                        break;
+                    case 'update':
+                        axios.patch('/api/tasks/'+this.id, {name: this.name}).then(res => {
+                            this.buttonText = 'store';
+                            this.getData()
+                        }).catch(e => {
+                            alert(e)
+                        });
+                        break;
+                    default:
+                        alert('error formSubmit');
+                        break;
+                }
+                this.name = '';
+            }
 
         }
     }
