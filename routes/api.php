@@ -12,4 +12,4 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::apiResource('tasks', 'TasksController')->except(['show', 'edit', 'create']);
