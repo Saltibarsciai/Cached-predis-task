@@ -1916,7 +1916,9 @@ __webpack_require__.r(__webpack_exports__);
           axios.post('/api/tasks', {
             name: this.name
           }).then(function (res) {
-            console.log(res.data);
+            if (res.data.error) {
+              alert(res.data.error);
+            }
 
             _this3.getData();
           })["catch"](function (e) {

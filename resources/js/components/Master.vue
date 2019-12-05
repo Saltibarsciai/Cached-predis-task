@@ -69,7 +69,9 @@
                 switch (type) {
                     case 'store':
                         axios.post('/api/tasks', {name: this.name}).then(res => {
-                            console.log(res.data);
+                            if (res.data.error) {
+                                alert(res.data.error);
+                            }
                             this.getData()
                         }).catch(e => {
                             alert(e)

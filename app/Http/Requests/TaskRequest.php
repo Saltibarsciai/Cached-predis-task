@@ -2,6 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Exceptions\FailedTaskRequest;
+use App\Exceptions\FailedTaskRequestException;
+use HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TaskRequest extends FormRequest
@@ -26,5 +30,8 @@ class TaskRequest extends FormRequest
         return [
             'name' => 'required|min:3'
         ];
+    }
+    protected function failedValidation(Validator $validator) {
+        throw new FailedTaskRequestException();
     }
 }
