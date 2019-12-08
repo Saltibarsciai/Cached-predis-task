@@ -16,7 +16,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return response()->json(Task::all());
+        return response()->json(\App\Repository\Task::all());
     }
 
     /**
@@ -27,6 +27,7 @@ class TasksController extends Controller
      */
     public function store(TaskRequest $request)
     {
+        \App\Repository\Task::flush();
         Task::create($request->all());
         return response([], 200);
     }
@@ -40,6 +41,7 @@ class TasksController extends Controller
      */
     public function update(TaskRequest $request, Task $task)
     {
+        \App\Repository\Task::flush();
         $task->update(['name' => $request->name]);
         return response([], 200);
     }
@@ -53,6 +55,7 @@ class TasksController extends Controller
      */
     public function destroy(Task $task)
     {
+        \App\Repository\Task::flush();
         $task->delete();
         return response([], 200);
     }
